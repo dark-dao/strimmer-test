@@ -1,0 +1,45 @@
+.test-result-page {
+  max-width: 70%;
+  min-width: 500px;
+  padding-left: 0!important;
+  padding-right: 0!important;
+  background-color: #9F8FBF;
+
+  .loader-container {
+    float: left;
+    width: 100%;
+    height: 300px;
+    background-color: grey;
+
+    @-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+    @-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+    @keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+    .loader {
+      width: 150px;
+      height: 150px;
+      margin-left: auto;
+      margin-right: auto;
+      -webkit-animation:spin 4s linear infinite;
+      -moz-animation:spin 4s linear infinite;
+      animation:spin 4s linear infinite;
+      background-position: center;
+      background-size: cover;
+      background-image: url('../../../images/mad.jpg');
+      -webkit-border-radius: 50%;
+      -moz-border-radius: 50%;
+      border-radius: 50%;
+
+      -webkit-box-shadow: 0 0 0 3px #C3B8D9, 0 0 0 4px #999, 0 2px 5px 4px rgba(0,0,0,.2);
+      -moz-box-shadow: 0 0 0 3px #C3B8D9, 0 0 0 4px #999, 0 2px 5px 4px rgba(0,0,0,.2);
+      box-shadow: 0 0 0 3px #C3B8D9, 0 0 0 4px #999, 0 2px 5px 4px rgba(0,0,0,.2);
+    }
+    .loader-phrase {
+      float: left;
+      width: 100%;
+      height: 30px;
+      font-size: 24px;
+      text-align: center;
+      color: white;
+    }
+  }
+}
