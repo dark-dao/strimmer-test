@@ -28,6 +28,13 @@ export default function testData(state = initialState, action = {}) {
         ...newState
       };
     }
+    case TEST_DATA.RESET: {
+      let newState = _.cloneDeep(state);
+      newState.StrimmersData = initialState;
+      return {
+        ...newState
+      };
+    }
 
     default:
       return state;

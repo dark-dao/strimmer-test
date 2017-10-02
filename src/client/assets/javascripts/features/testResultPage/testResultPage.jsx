@@ -3,6 +3,7 @@ import { browserHistory, Link } from 'react-router';
 import { connect } from 'react-redux';
 
 import './testResultPage.less';
+import { resetTest } from 'app/redux-module/actions/testData';
 
 const phrasesMapper = [
   "Мошним, мошним ...",
@@ -21,7 +22,7 @@ const phrasesMapper = [
 
 const maxTicks = 11;
 const mapDispatchToProps = {
-
+  resetTest
 };
 
 const mapStateToProps = state => ({
@@ -95,6 +96,9 @@ class TestResultPage extends Component {
       browserHistory.push('/');
     }
   }
+  handleTransition() {
+    this.props.resetTest();
+  }
   render() {
     const { isLoading, phrase, stats, result } = this.state;
     return (
@@ -107,7 +111,7 @@ class TestResultPage extends Component {
         ) : (
           <div className="result-container">
             <span>Ты {result.name} </span>
-            <Link to="/">Возможно я другой стриммер?</Link>
+          <Link to="/" onClick={this.handleTransition}>Возможно я другой стриммер?</Link>
           </div>
         )}
       </div>
