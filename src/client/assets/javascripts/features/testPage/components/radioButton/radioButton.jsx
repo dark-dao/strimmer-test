@@ -21,8 +21,9 @@ class RadioButton extends Component {
       [this.props.className]: className
     });
     return (
-      <div className={classes}>
-        <label onClick={ () => {this.handleClick();} }>
+      <div className={classes} onClick={ () => {this.handleClick();} }>
+        <div className={checked ? "img checked" : "img"}/>
+        <label>
           <input type="radio"
             name={name}
             value={value}

@@ -1,5 +1,10 @@
 .questions-container {
-  width: 100%;
+  width: 50%;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #9F8FBF;
+
   .question-count {
     float: left;
     width: 100%;
@@ -12,12 +17,41 @@
   .question {
     float: left;
     width: 100%;
-    min-height: 300px;
-    font-size: 24px;
-    background-color: #745DA6;
-    color: #ffffff;
+
+    .question-text {
+      float: left;
+      width: 100%;
+      min-height: 300px;
+      font-size: 24px;
+      color: #ffffff;
+      background-color: #745DA6;
+    }
+    .answers {
+      float: left;
+      width: 100%;
+      height: 300px;
+      padding: 0px 30px 0px 30px;
+      background-color: #9F8FBF;
+    }
   }
-  .answer {
+  .debug {
+    float: left;
     width: 100%;
+    height: 50px;
+    background: white;
+
+    .debug-item {
+      float: left;
+      width: auto;
+      margin-right: 5px;
+      height: 100%;
+    }
+  }
+}
+@media screen and (max-width: 800px) {
+  .questions-container{
+    width: 100%;
+    max-height: 100%;
+    margin: 0;
   }
 }

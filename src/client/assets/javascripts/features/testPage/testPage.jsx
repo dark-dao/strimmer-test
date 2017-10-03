@@ -24,7 +24,7 @@ class TestPage extends Component {
 
   render() {
     return (
-      <div className="container-fluid test-page">
+      <div className="test-page">
         <Questions />
       </div>
     )

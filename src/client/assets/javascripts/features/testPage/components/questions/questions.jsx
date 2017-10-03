@@ -91,8 +91,8 @@ class Questions extends Component {
         {_.map(randomQuestions, (item, i) => {
           if(i == testStep) {
             return (
-              <div key={i}>
-                <div className="question">
+              <div key={i} className="question">
+                <div className="question-text">
                   {item.question}
                 </div>
                 <div className="answers">
@@ -121,7 +121,7 @@ class Questions extends Component {
         <div className="debug">
           {_.map(testData, item => {
             return (
-              <div key={Math.random()}>
+              <div key={Math.random()} className="debug-item">
                 <span>{item.name} </span>
                 <strong>{item.weight}</strong>
               </div>
