@@ -11,12 +11,20 @@ const port = 8080;
 app.use(helmet());
 app.use(robots([
   {
+    UserAgent: '*',
+    Allow: '/'
+  },
+  {
     UserAgent: 'Googlebot',
-    Disallow: '*'
+    Allow: '/'
   },
   {
     UserAgent: 'Bingbot',
-    Disallow: '*'
+    Allow: '/'
+  },
+  {
+    UserAgent: 'Yandex',
+    Allow: '/'
   }
 ]));
 
