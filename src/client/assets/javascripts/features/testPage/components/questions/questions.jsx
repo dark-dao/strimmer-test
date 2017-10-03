@@ -108,13 +108,15 @@ class Questions extends Component {
                       </RadioButton>
                     );
                   })}
-                  <div className="button-container">
-                    {(testStep+1) == _.size(questionsMapper) ? (
-                      <Button onClick={() => {this.transitionToResults();}} disable={!_.size(answer)}>Узнать результат!</Button>
-                    ) : (
-                      <Button key={Math.random()} onClick={() => {this.nextStep();}} disable={!_.size(answer)}>Далее</Button>
-                    )}
-                  </div>
+                  {_.size(answer) ? (                    
+                    <div className="button-container">
+                      {(testStep+1) == _.size(questionsMapper) ? (
+                        <Button onClick={() => {this.transitionToResults();}} disable={!_.size(answer)}>Узнать результат!</Button>
+                      ) : (
+                        <Button key={Math.random()} onClick={() => {this.nextStep();}} disable={!_.size(answer)}>Далее</Button>
+                      )}
+                    </div>
+                  ) : null}
 
                 </div>
               </div>
