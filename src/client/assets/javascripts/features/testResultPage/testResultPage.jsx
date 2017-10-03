@@ -102,18 +102,30 @@ class TestResultPage extends Component {
   render() {
     const { isLoading, phrase, stats, result } = this.state;
     return (
-      <div className="container-fluid test-result-page">
-        {isLoading ? (
-          <div className="loader-container">
-            <div className="loader"/>
-            <span className="loader-phrase">{phrase}</span>
-          </div>
-        ) : (
-          <div className="result-container">
-            <span>Ты {result.name} </span>
-          <Link to="/" onClick={this.handleTransition}>Возможно я другой стриммер?</Link>
-          </div>
-        )}
+      <div className="test-result-page">
+        <div className="result">
+          {isLoading ? (
+            <div className="loader-container">
+              <div className="loader"/>
+              <span className="loader-phrase">{phrase}</span>
+            </div>
+          ) : (
+            <div className="result-container">
+              <div className="name">
+                <span>Ты {result.name}</span>
+              </div>
+              <div className="image-container">
+                <div className="strimmer-image"/>
+              </div>
+              <div className="title-container">
+                <span>{result.title}</span>
+              </div>
+              <div className="footer-container">
+                <Link to="/" onClick={this.handleTransition}>Возможно я другой стриммер?</Link>
+              </div>
+            </div>
+          )}
+        </div>
       </div>
     )
   }

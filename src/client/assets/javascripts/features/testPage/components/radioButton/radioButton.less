@@ -1,8 +1,15 @@
+.transition(@property: all, @delay: 0.2s, @effect: ease-in-out ) {
+    -webkit-transition: @property @delay @effect;
+       -moz-transition: @property @delay @effect;
+         -o-transition: @property @delay @effect;
+            transition: @property @delay @effect;
+}
 .radio-btn-answer {
   float: left;
   width: 100%;
-  height: 30px;
+  height: auto;
   margin-top: 15px;
+  cursor: pointer;
 
   .img {
     float: left;
@@ -14,16 +21,22 @@
     border-radius: 100%;
     border: 1px solid #ddd;
     background: #C3B8D9;
+    cursor: pointer;
+    .transition();
+
     &.checked {
       border: 2px solid #C3B8D9;
       background: #674BA6;
     }
   }
   label {
-    display: block;
-    width: 100%;
+    float: left;
+    width: calc(~"100% - 50px");
     height: 100%;
     margin: 0;
+    font-size: 18px;
+    color: white;
+    cursor: pointer;
   }
   input {
     display: none;
