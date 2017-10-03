@@ -19,7 +19,6 @@ class StartPage extends Component {
 
     };
   }
-
   render() {
     return (
       <div className="start-page">

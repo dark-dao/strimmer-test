@@ -23,9 +23,9 @@
         height: 200px;
         margin-left: auto;
         margin-right: auto;
-        -webkit-animation:spin 4s linear infinite;
-        -moz-animation:spin 4s linear infinite;
-        animation:spin 4s linear infinite;
+        -webkit-animation:spin 2s linear infinite;
+        -moz-animation:spin 2s linear infinite;
+        animation:spin 2s linear infinite;
         background-position: center;
         background-size: cover;
         background-image: url('../../../images/mad.jpg');
@@ -56,7 +56,7 @@
         padding-top: 20px;
         text-align: center;
         font-size: 40px;
-            background-color: #9F8FBF;
+        background-color: #9F8FBF;
       }
       .image-container {
         float: left;
@@ -92,6 +92,22 @@
         width: 100%;
         height: 200px;
         background-color: #321659;
+
+        #vk_share_button {
+          width: 30px;
+          height: 30px;
+          background: none;
+          border: 0;
+          background-size: cover;
+          background-position: center;
+          background-image: url('../../../images/vk_img.png');
+
+          #vk_button_link {
+            width: 30px;
+            height: 30px;
+            opacity: 0;
+          }
+        }
       }
     }
   }
@@ -100,5 +116,11 @@
   .test-result-page {
     min-width: 100%;
     min-height: 100%;
+    padding: 0;
+    
+    .result {
+      width: 100%;
+      margin: 0;
+    }
   }
 }

@@ -83,6 +83,13 @@ class TestResultPage extends Component {
         isLoading: false,
         result: this.getResult()
       });
+      document.getElementById('vk_share_button').innerHTML =
+        VK.Share.button({
+          url: 'https://dark-dao.com',
+          title: `Я ${this.state.result.name}. Узнай кто ты из стриммеров!`
+        }, {
+          type: 'custom', text: '<img id="vk_button_link"/>'
+        });
     }
   }
   runTimer() {
@@ -125,6 +132,9 @@ class TestResultPage extends Component {
                 <span>{result.title}</span>
               </div>
               <div className="footer-container">
+                <button id="vk_share_button">
+                  Поделиться
+                </button>
                 <Link to="/" onClick={this.handleTransition}>Возможно я другой стриммер?</Link>
               </div>
             </div>
