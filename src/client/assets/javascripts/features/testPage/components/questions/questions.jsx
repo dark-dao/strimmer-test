@@ -108,7 +108,7 @@ class Questions extends Component {
                       </RadioButton>
                     );
                   })}
-                  {_.size(answer) ? (                    
+                  {_.size(answer) ? (
                     <div className="button-container">
                       {(testStep+1) == _.size(questionsMapper) ? (
                         <Button onClick={() => {this.transitionToResults();}} disable={!_.size(answer)}>Узнать результат!</Button>
@@ -117,7 +117,6 @@ class Questions extends Component {
                       )}
                     </div>
                   ) : null}
-
                 </div>
               </div>
             );

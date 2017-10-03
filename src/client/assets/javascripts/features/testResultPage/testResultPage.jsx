@@ -6,21 +6,21 @@ import './testResultPage.less';
 import { resetTest } from 'app/redux-module/actions/testData';
 
 const phrasesMapper = [
-  "Мошним, мошним ...",
-  "Кормим Кекса ...",
-  "Кекс накормлен ...",
-  "Гладим Лорика ...",
-  "Роллим ...",
-  "Рофлим ...",
+  "Мошним, мошним . . .",
+  "Кормим Кекса . . .",
+  "Гладим Лорика . . .",
+  "Роллим . . .",
+  "Рофлим . . .",
   "Реролл !",
+  "Ищем шаверму для Хована",
   "Опять реролл !",
-  "Так, посмотрим ...",
-  "Ну такое себе ...",
-  "Ищем подземных людей ...",
-  "Meh ..."
+  "Так, посмотрим . . .",
+  "Ну такое себе . . .",
+  "Где этот артефакт етить его в корень . . .",
+  "Ищем подземных людей . . .",
+  "Meh . . ."
 ];
 
-const maxTicks = 11;
 const mapDispatchToProps = {
   resetTest
 };
@@ -32,13 +32,17 @@ const mapStateToProps = state => ({
 class TestResultPage extends Component {
   constructor(props) {
     super(props);
+    const arrSize = _.size(phrasesMapper);
+    const sizeOfDrop = arrSize/2 - 0.5 + Math.random() * (arrSize - arrSize/2 + 1);
+    const maxTicks = Math.round(sizeOfDrop);
     this.state = {
       isLoading: true,
       ticksSum: 0,
       randomPhrases: this.getRandomPhrases(),
       phrase: '',
       stats: props.stats,
-      result: ''
+      result: '',
+      maxTicks
     };
   }
   getRandomNumber(from, to) {
@@ -67,7 +71,7 @@ class TestResultPage extends Component {
     return info;
   }
   hideLoader() {
-    const { ticksSum, randomPhrases } = this.state;
+    const { ticksSum, randomPhrases, maxTicks } = this.state;
     if(ticksSum < maxTicks) {
       this.setState({
         ticksSum: ticksSum + 1,
@@ -82,11 +86,11 @@ class TestResultPage extends Component {
     }
   }
   runTimer() {
-    let rand = 1000 - 0.5 + Math.random() * (2000 - 1000 + 1);
-    rand = Math.round(rand);
+    let randTimer = 1000 - 0.5 + Math.random() * (2000 - 1000 + 1);
+    randTimer = Math.round(randTimer);
     setTimeout(() => {
       this.hideLoader();
-    }, rand);
+    }, randTimer);
   }
   componentDidMount() {
     let isPassed = _.size(_.filter(this.props.stats, item => {return item.weight == 0})) == _.size(this.props.stats);
