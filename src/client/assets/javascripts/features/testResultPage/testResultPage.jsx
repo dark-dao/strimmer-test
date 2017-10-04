@@ -46,7 +46,8 @@ class TestResultPage extends Component {
   constructor(props) {
     super(props);
     const arrSize = _.size(phrasesMapper);
-    const sizeOfDrop = arrSize/2 - 0.5 + Math.random() * (arrSize - arrSize/2 + 1);
+    const sizeOfDrop = 2 - 0.5 + Math.random() * (arrSize/2 - 2 + 1);
+    console.log(sizeOfDrop);
     const maxTicks = Math.round(sizeOfDrop);
 
     let randomIndex = 0 - 0.5 + Math.random() * (_.size(loaderImageUrls) - 1 + 1);
@@ -130,7 +131,7 @@ class TestResultPage extends Component {
     }
   }
   handleTransition() {
-    this.props.resetTest();    
+    this.props.resetTest();
   }
   render() {
     const { isLoading, phrase, stats, result, loaderBackground } = this.state;
