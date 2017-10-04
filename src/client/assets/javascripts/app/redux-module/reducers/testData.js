@@ -30,7 +30,7 @@ export default function testData(state = initialState, action = {}) {
     }
     case TEST_DATA.RESET: {
       let newState = _.cloneDeep(state);
-      newState.StrimmersData = initialState;
+      newState.StrimmersData = _.map(StrimmersData, item => item);
       return {
         ...newState
       };

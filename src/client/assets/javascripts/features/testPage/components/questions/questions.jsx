@@ -36,9 +36,6 @@ class Questions extends Component {
     let questions = _.cloneDeep(questionsMapper);
     return questions.sort(this.getRandomNumber);
   }
-  componentWillMount() {
-
-  }
   componentWillReceiveProps(nextProps) {
     console.log(nextProps);
     this.setState({

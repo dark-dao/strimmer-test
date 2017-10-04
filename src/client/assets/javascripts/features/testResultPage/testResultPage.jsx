@@ -130,8 +130,7 @@ class TestResultPage extends Component {
     }
   }
   handleTransition() {
-    this.props.resetTest();
-    browserHistory.push('/test');
+    this.props.resetTest();    
   }
   render() {
     const { isLoading, phrase, stats, result, loaderBackground } = this.state;

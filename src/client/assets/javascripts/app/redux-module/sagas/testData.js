@@ -8,7 +8,8 @@ export function* testData() {
     try {
       const data = yield take([TEST_DATA.SELECT_ANSWER, TEST_DATA.RESET]);
 
-      if(data.user) {
+      if(data.reset) {
+        browserHistory.push('/test');
         //yield put(userInfoSuccess(request.user.local));
 
       } else {
