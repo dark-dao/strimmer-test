@@ -45,7 +45,7 @@ const middleWare = (req, res, next) => {
   let minutes = time.getMinutes();
   let seconds = time.getSeconds();
   let milliseconds = time.getMilliseconds();
-  console.log(`[${month}.${data} - ${hours}:${minutes}:${seconds}:${milliseconds}] - IP: [ ${ip} `);
+  console.log(`[${month}.${data} - ${hours}:${minutes}:${seconds}:${milliseconds}] - IP: [ ${ip} ]`);
   next();
 };
 

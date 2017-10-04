@@ -3,7 +3,13 @@ import { browserHistory, Link } from 'react-router';
 import { connect } from 'react-redux';
 
 import './testResultPage.less';
+import { Button } from './components';
 import { resetTest } from 'app/redux-module/actions/testData';
+
+import mad from '../../../images/mad.jpg';
+import angry_man from '../../../images/angry_man.png';
+import toha from '../../../images/toha.png';
+import ten from '../../../images/ten.png';
 
 const phrasesMapper = [
   "Мошним, мошним . . .",
@@ -12,13 +18,20 @@ const phrasesMapper = [
   "Роллим . . .",
   "Рофлим . . .",
   "Реролл !",
-  "Ищем шаверму для Хована",
+  "Ищем шаверму для Хована . . .",
   "Опять реролл !",
   "Так, посмотрим . . .",
   "Ну такое себе . . .",
   "Где этот артефакт етить его в корень . . .",
   "Ищем подземных людей . . .",
   "Meh . . ."
+];
+
+const loaderImageUrls = [
+  mad,
+  angry_man,
+  toha,
+  ten
 ];
 
 const mapDispatchToProps = {
@@ -35,6 +48,14 @@ class TestResultPage extends Component {
     const arrSize = _.size(phrasesMapper);
     const sizeOfDrop = arrSize/2 - 0.5 + Math.random() * (arrSize - arrSize/2 + 1);
     const maxTicks = Math.round(sizeOfDrop);
+
+    let randomIndex = 0 - 0.5 + Math.random() * (_.size(loaderImageUrls) - 1 + 1);
+    randomIndex = Math.round(randomIndex) + 0;
+    const randomImage = loaderImageUrls[randomIndex];
+    const loaderBackground = {
+      backgroundImage: `url(${randomImage})`
+    };
+
     this.state = {
       isLoading: true,
       ticksSum: 0,
@@ -42,7 +63,8 @@ class TestResultPage extends Component {
       phrase: '',
       stats: props.stats,
       result: '',
-      maxTicks
+      maxTicks,
+      loaderBackground
     };
   }
   getRandomNumber(from, to) {
@@ -109,15 +131,19 @@ class TestResultPage extends Component {
   }
   handleTransition() {
     this.props.resetTest();
+    browserHistory.push('/test');
   }
   render() {
-    const { isLoading, phrase, stats, result } = this.state;
+    const { isLoading, phrase, stats, result, loaderBackground } = this.state;
     return (
       <div className="test-result-page">
         <div className="result">
           {isLoading ? (
             <div className="loader-container">
-              <div className="loader"/>
+              <div className="header">Вычисляем результат</div>
+              <div className="loader-block">
+                <div className="loader" style={loaderBackground}/>
+              </div>
               <span className="loader-phrase">{phrase}</span>
             </div>
           ) : (
@@ -132,10 +158,13 @@ class TestResultPage extends Component {
                 <span>{result.title}</span>
               </div>
               <div className="footer-container">
-                <button id="vk_share_button">
-                  Поделиться
-                </button>
-                <Link to="/" onClick={this.handleTransition}>Возможно я другой стриммер?</Link>
+                <Button onClick={() => { this.handleTransition();}}>Возможно я другой стриммер?</Button>
+                <div className="social-buttons-container">
+                  <div className="header">
+                    <span>Поделиться</span>
+                  </div>
+                  <button id="vk_share_button" />
+                </div>
               </div>
             </div>
           )}
