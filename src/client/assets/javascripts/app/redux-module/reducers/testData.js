@@ -17,6 +17,8 @@ export default function testData(state = initialState, action = {}) {
             id: item.id,
             name: item.name,
             title: item.title,
+            image: item.image,
+            urls: item.urls,
             weight: item.weight + answer.weight
           };
           return newItem;
@@ -31,6 +33,13 @@ export default function testData(state = initialState, action = {}) {
     case TEST_DATA.RESET: {
       let newState = _.cloneDeep(state);
       newState.StrimmersData = _.map(StrimmersData, item => item);
+      return {
+        ...newState
+      };
+    }
+    case TEST_DATA.SET_DISPUT_ANSWERS: {
+      let newState = _.cloneDeep(state);
+      newState.disputAnswers = action.disput;
       return {
         ...newState
       };

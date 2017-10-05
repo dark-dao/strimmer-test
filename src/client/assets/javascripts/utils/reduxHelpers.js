@@ -2,7 +2,7 @@
 /* eslint-disable arrow-parens, babel/arrow-parens */
 export function createRequestTypes(base) {
   const res = {};
-  ['REQUEST', 'SUCCESS', 'FAILURE', 'SELECT_ANSWER', 'RESET'].forEach(type => { res[type] = `${base}_${type}`; });
+  ['REQUEST', 'SUCCESS', 'FAILURE', 'SELECT_ANSWER', 'RESET', 'SET_DISPUT_ANSWERS'].forEach(type => { res[type] = `${base}_${type}`; });
   return res;
 }
 

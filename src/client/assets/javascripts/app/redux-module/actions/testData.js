@@ -12,6 +12,15 @@ export function selectAnswer(strimmerInfo) {
   };
 };
 
+export function setDisputAnswers(answers) {
+  console.log(answers);
+  // answers = [1,2,3,...] - ids
+  return {
+    type: TEST_DATA.SET_DISPUT_ANSWERS,
+    disput: answers
+  };
+}
+
 export function resetTest() {
   return {
     type: TEST_DATA.RESET,

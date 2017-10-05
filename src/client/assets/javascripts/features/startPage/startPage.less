@@ -1,10 +1,11 @@
 .start-page {
-  min-width: 50%;
+  min-width: 30%;
   height: 100vh;
   padding-top: 150px;
 
   .preview {
-    width: 50%;
+    width: 30%;
+    min-width: 450px;
     height: auto;
     margin-left: auto;
     margin-right: auto;
@@ -13,19 +14,66 @@
       float: left;
       width: 100%;
       height: 60px;
+      padding-left: 30px;
+      padding-top: 10px;
+      color: #321659;
       background-color: #9F8FBF;
+
+      h1 {
+        margin: 0;
+        font-size: 28px;
+        line-height: 1.5;
+      }
     }
     .body {
       float: left;
       width: 100%;
       height: 160px;
+      padding: 20px;
+      text-align: center;
       background-color: #745DA6;
+
+      .text {
+        width: 100%;
+        height: auto;
+        font-size: 20px;
+        margin-bottom: 20px;
+        color: white;
+      }
     }
     .footer {
       float: left;
       width: 100%;
-      height: 50px;
+      height: auto;
+      color: #B79BF2;
+      padding: 5px;
       background-color: #543D87;
+
+      .creator {
+        float: left;
+        width: 50%;
+        height: 100%;
+        text-align: center;
+
+        .title {
+          float: left;
+          width: 100%;
+        }
+        .mail {
+          float: left;
+          width: 100%;
+          color: #fff;
+        }
+        a {
+          display: inline-block;
+          width: 20px;
+          height: 20px;
+          margin-top: 5px;
+          background-position: center;
+          background-size: cover;
+          background-image: url('../../../images/vk_img.png');
+        }
+      }
     }
   }
 }
@@ -33,7 +81,7 @@
   .start-page {
     min-width: 100%;
     padding: 0;
-    
+
     .preview {
       width: 100%;
       margin: 0;

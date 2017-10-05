@@ -1,8 +1,9 @@
 import React, { Component, PropTypes } from 'react';
-import { Link } from 'react-router';
+import { Link, browserHistory } from 'react-router';
 import { connect } from 'react-redux';
 
 import './startPage.less';
+import { Button } from './components';
 
 const mapDispatchToProps = {
 
@@ -19,18 +20,41 @@ class StartPage extends Component {
 
     };
   }
+  transitionToStart() {
+    browserHistory.push('/test');
+  }
   render() {
     return (
       <div className="start-page">
         <div className="preview">
           <div className="header">
-            <h1>Узнай кто ты из стриммеров!</h1>
+            <h1>Узнай кто ты из стриммеров</h1>
           </div>
           <div className="body">
-            Описание
+            <div className="text">
+              <span>Пройди этот тест и узнай кто ты из величайших стриммеров современности</span>
+            </div>
+            <Button onClick={() => { this.transitionToStart();}}> Пройти тест! </Button>
           </div>
           <div className="footer">
-            <Link to="/test"> Начать тест! </Link>
+            <div className="creator">
+              <div className="title">
+                <span>Дизайн и концепция</span>
+              </div>
+              <div className="mail">
+                <span>email</span>
+              </div>
+              <Link target="_blank" to="https://vk.com/kensik"/>
+            </div>
+            <div className="creator">
+              <div className="title">
+                <span>Разработка и реализация</span>
+              </div>
+              <div className="mail">
+                <span>dev.dark.dao@gmail.com</span>
+              </div>
+              <Link target="_blank" to="https://vk.com/dark_dao"/>
+            </div>
           </div>
         </div>
       </div>

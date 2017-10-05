@@ -3,7 +3,7 @@ import { browserHistory } from 'react-router';
 import { connect } from 'react-redux';
 import _ from 'lodash';
 
-import { selectAnswer, resetTest } from 'app/redux-module/actions/testData';
+import { selectAnswer, setDisputAnswers } from 'app/redux-module/actions/testData';
 
 import './questions.less';
 import Button from '../button/button';
@@ -12,7 +12,7 @@ import questionsMapper from './questionMapper';
 
 const mapDispatchToProps = {
   selectAnswer,
-  resetTest
+  setDisputAnswers
 };
 
 const mapStateToProps = state => ({
@@ -72,9 +72,15 @@ class Questions extends Component {
       }
     });
     let repeatElems = _.filter(testData, item => {return item.weight == max});
+    let isDisputResult = _.size(repeatElems) >= 2;
     console.log(repeatElems);
-
-    browserHistory.push('/result');
+    console.log(isDisputResult);
+    if(isDisputResult) {
+      this.props.setDisputAnswers(_.map(repeatElems, item => item.id));
+      //this.props.setDisputAnswers([1,2]);
+    } else {
+      browserHistory.push('/result');
+    }
   }
   render() {
     const { randomQuestions, testStep, testData, answer } = this.state;
@@ -93,6 +99,7 @@ class Questions extends Component {
                   {item.question}
                 </div>
                 <div className="answers">
+                  <div className="answers-items">
                   {_.map(item.answers, (answerItem) => {
                     const isChecked = answer.id == answerItem.id;
                     return (
@@ -105,12 +112,13 @@ class Questions extends Component {
                       </RadioButton>
                     );
                   })}
+                </div>
                   {_.size(answer) ? (
                     <div className="button-container">
                       {(testStep+1) == _.size(questionsMapper) ? (
-                        <Button onClick={() => {this.transitionToResults();}} disable={!_.size(answer)}>Узнать результат!</Button>
+                        <Button onClick={() => {this.transitionToResults();}}>Узнать результат!</Button>
                       ) : (
-                        <Button key={Math.random()} onClick={() => {this.nextStep();}} disable={!_.size(answer)}>Далее</Button>
+                        <Button key={Math.random()} onClick={() => {this.nextStep();}}>Далее</Button>
                       )}
                     </div>
                   ) : null}

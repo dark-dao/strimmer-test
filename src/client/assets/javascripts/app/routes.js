@@ -8,6 +8,7 @@ import NotFoundView from 'components/NotFound';
 import {
   StartPage,
   TestPage,
+  SpecialQuestionPage,
   TestResultPage
 } from 'features';
 
@@ -20,9 +21,10 @@ export default (store) => {
   return (
     <Route path="/" component={ App }>
       <IndexRoute component={ StartPage } />
-      <Route name="test" path="test" component={ TestPage }></Route>
+      <Route name="test" path="test" component={ TestPage } />
+      <Route name="special" path="special" component={ SpecialQuestionPage } />
       <Route name="result" path="result" component={ TestResultPage } />
-      <Route path="404" component={NotFoundView} />
+      <Route path="404" component={ NotFoundView } />
       <Redirect from="*" to="404" />
     </Route>
   );

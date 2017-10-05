@@ -1,0 +1,44 @@
+.transition(@property: all, @delay: 0.2s, @effect: ease-in-out ) {
+    -webkit-transition: @property @delay @effect;
+       -moz-transition: @property @delay @effect;
+         -o-transition: @property @delay @effect;
+            transition: @property @delay @effect;
+}
+.radio-btn-answer-final {
+  float: left;
+  width: 100%;
+  height: auto;
+  margin-top: 15px;
+  cursor: pointer;
+
+  .img {
+    float: left;
+    width: 20px;
+    height: 20px;
+    padding: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    border-radius: 100%;
+    border: 1px solid #ddd;
+    background: #FFFABC;
+    cursor: pointer;
+    .transition();
+
+    &.checked {
+      border: 2px solid #FFFABC;
+      background: #403300;
+    }
+  }
+  label {
+    float: left;
+    width: calc(~"100% - 50px");
+    height: 100%;
+    margin: 0;
+    font-size: 18px;
+    color: white;
+    cursor: pointer;
+  }
+  input {
+    display: none;
+  }
+}

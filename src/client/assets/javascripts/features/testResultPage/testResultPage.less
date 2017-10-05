@@ -1,10 +1,11 @@
 .test-result-page {
-  min-width: 50%;
+  min-width: 30%;
   height: 100vh;
   padding-top: 150px;
 
   .result {
-    width: 50%;
+    width: 30%;
+    min-width: 450px;
     height: auto;
     margin-left: auto;
     margin-right: auto;
@@ -76,6 +77,7 @@
         padding-top: 20px;
         text-align: center;
         font-size: 40px;
+        color: #321659;
         background-color: #9F8FBF;
       }
       .image-container {
@@ -92,46 +94,137 @@
           margin-right: auto;
           background-position: center;
           background-size: cover;
-          background-image: url('../../../images/mad.jpg');
           -webkit-border-radius: 50%;
           -moz-border-radius: 50%;
           border-radius: 50%;
+          -webkit-box-shadow: 0 0 0 4px #C3B8D9, 0 0 0 4px #999, 0 2px 5px 4px rgba(0,0,0,.2);
+          -moz-box-shadow: 0 0 0 4px #C3B8D9, 0 0 0 4px #999, 0 2px 5px 4px rgba(0,0,0,.2);
+          box-shadow: 0 0 0 4px #C3B8D9, 0 0 0 4px #999, 0 2px 5px 4px rgba(0,0,0,.2);
         }
       }
       .title-container {
         float: left;
         width: 100%;
-        height: 100px;
+        min-height: 100px;
+        height: auto;
+        padding: 20px;
         font-size: 25px;
         text-align: center;
         background-color: #543D87;
         color: white;
+
+        .strimmer-url {
+          width: 100%;
+          height: 40px;
+          margin-top: 20px;
+
+          .header {
+            float: left;
+            width: 60%;
+            height: 40px;
+            margin-right: 10px;
+            line-height: 40px;
+            font-size: 16px;
+          }
+          a {
+            float: left;
+            width: 40px;
+            height: 40px;
+            margin-right: 5px;
+            background-size: cover;
+            background-position: center;
+          }
+          .twitch {
+            background-image: url('../../../images/twitch_img.png');
+          }
+          .vk {
+            background-image: url('../../../images/vk_img.png');
+          }
+          .instagram {
+            background-image: url('../../../images/instagram_img.png');
+          }
+        }
       }
       .footer-container {
         float: left;
         width: 100%;
-        height: 200px;
+        height: auto;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        text-align: center;
         background-color: #321659;
 
         .social-buttons-container {
           float: left;
           width: 100%;
+          height: auto;
+          padding-top: 20px;
+          color: #9F8FBF;
+          font-size: 20px;
 
-          #vk_share_button {
-            width: 30px;
-            height: 30px;
-            background: none;
-            border: 0;
-            background-size: cover;
-            background-position: center;
-            background-image: url('../../../images/vk_img.png');
+          .BUTTONS {
+            width: 80px;
+            height: 10px;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
 
-            #vk_button_link {
-              width: 30px;
-              height: 30px;
-              opacity: 0;
+            .VK_BUTTON {
+              float: left;
+              width: 40px;
+
+              #vk_share_button {
+                width: 30px;
+                height: 30px;
+                background: none;
+                border: 0;
+                background-size: cover;
+                background-position: center;
+                background-image: url('../../../images/vk_img.png');
+
+                #vk_button_link {
+                  width: 30px;
+                  height: 30px;
+                  opacity: 0;
+                }
+              }
+            }
+            .FACEBOOK_BUTTON {
+              float: left;
+              width: 40px;
+
+              #facebook_share_button {
+                width: 30px;
+                height: 30px;
+                background: none;
+                border: 0;
+                background-size: cover;
+                background-position: center;
+                background-image: url('../../../images/facebook_img.png');
+              }
             }
           }
+        }
+      }
+
+      &.leprekon-mode {
+        .name {
+          background-color: #00AA3A;
+          color: #fff;
+        }
+        .image-container {
+          background-color: #006B24;
+          .strimmer-image {
+            -webkit-box-shadow: 0 0 0 4px #00EA50, 0 0 0 4px #999, 0 2px 5px 4px rgba(0,0,0,.2);
+            -moz-box-shadow: 0 0 0 4px #00EA50, 0 0 0 4px #999, 0 2px 5px 4px rgba(0,0,0,.2);
+            box-shadow: 0 0 0 4px #00EA50, 0 0 0 4px #999, 0 2px 5px 4px rgba(0,0,0,.2);
+          }
+        }
+        .title-container {
+          background-color: #005E20;
+        }
+        .footer-container {
+          background-color: #004417;
         }
       }
     }
