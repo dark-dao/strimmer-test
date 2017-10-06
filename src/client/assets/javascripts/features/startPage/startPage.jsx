@@ -55,6 +55,12 @@ class StartPage extends Component {
               </div>
               <Link target="_blank" to="https://vk.com/dark_dao"/>
             </div>
+            <div className="pay-container">
+              <div className="text">
+                Поблагодарить
+              </div>
+              <Link target="_blank" to="https://paypal.me/darkdao"/>
+            </div>
           </div>
         </div>
       </div>

@@ -145,7 +145,14 @@ class TestResultPage extends Component {
     };
     let leprekonMode = false;
     let gitmanMode = false;
-    console.log(result);
+    let madMode = false;
+    let welovegamesMode = false;
+    if(result.id == 2) { // Мэд
+      madMode = true;
+    }
+    if(result.id == 5) { // Виловгей
+      welovegamesMode = true;
+    }
     if(result.id == 3) { // Гитман
       gitmanMode = true;
     }
@@ -169,7 +176,14 @@ class TestResultPage extends Component {
                 <span>Ты {result.name}</span>
               </div>
               <div className={gitmanMode ? "image-container gitman-mode" : "image-container"}>
-                <div className="strimmer-image" style={strimmerImage}/>
+                <div className={welovegamesMode ? "strimmer-image welovegames-mode" : "strimmer-image"} style={strimmerImage}>
+                  {madMode ? (
+                    <div className="mad-mode"/>
+                  ) : null}
+                </div>
+                {welovegamesMode ? (
+                  <div className="welovegames-mode-text">Пора доставать гуталин</div>
+                ) : null}
               </div>
               <div className="title-container">
                 <span>{result.title}</span>
@@ -194,6 +208,12 @@ class TestResultPage extends Component {
                       <FacebookButton sharer={true} id="facebook_share_button" url='https://etozhetest.ru' appId={`${config.id1}${config.id2}${config.id3}`} message="my message"/>
                     </div>
                   </div>
+                </div>
+                <div className="pay-container">
+                  <div className="text">
+                    Поблагодарить
+                  </div>
+                  <Link target="_blank" to="https://paypal.me/darkdao"/>
                 </div>
               </div>
             </div>
