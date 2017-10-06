@@ -44,7 +44,8 @@ const Strimmers = [
     title: 'Поднимаю за тебя стакан кефира Сека!',
     image: imageUrls.cake,
     urls: [
-      {url: 'https://www.twitch.tv/c_a_k_e', title: 'twitch'}
+      {url: 'https://www.twitch.tv/c_a_k_e', title: 'twitch'},
+      {url: 'https://vk.com/cakestream', title: 'vk'}
     ],
     weight: 0
   },
@@ -54,7 +55,8 @@ const Strimmers = [
     title: 'Надевай корону, ведь ты теперь Король!',
     image: imageUrls.mad,
     urls: [
-      {url: 'https://www.twitch.tv/honeymad', title: 'twitch'}
+      {url: 'https://www.twitch.tv/honeymad', title: 'twitch'},
+      {url: 'https://vk.com/mad_streams', title: 'vk'}
     ],
     weight: 0
   },
@@ -107,7 +109,7 @@ const Strimmers = [
   {
     id: 7,
     name: 'Факер',
-    title: 'Ух, ты да ты любишь золотые монетки! Ты самый дружелюбный Факер-лепрекон!',
+    title: 'Ух ты, да ты любишь золотые монетки! Ты самый дружелюбный Факер-лепрекон!',
     image: imageUrls.mistafaker,
     urls: [
       {url: 'https://www.twitch.tv/mistafaker', title: 'twitch'},

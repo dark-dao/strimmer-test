@@ -3,6 +3,21 @@
   height: 100vh;
   padding-top: 150px;
 
+  .debug {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 200px;
+    height: auto;
+    background: white;
+
+    .debug-item {
+      float: left;
+      width: auto;
+      margin-right: 5px;
+      height: auto;
+    }
+  }
   .result {
     width: 30%;
     min-width: 450px;
@@ -101,6 +116,14 @@
           -moz-box-shadow: 0 0 0 4px #C3B8D9, 0 0 0 4px #999, 0 2px 5px 4px rgba(0,0,0,.2);
           box-shadow: 0 0 0 4px #C3B8D9, 0 0 0 4px #999, 0 2px 5px 4px rgba(0,0,0,.2);
         }
+        &.gitman-mode {
+          &:hover {
+            background-position: center;
+            background-size: cover;
+            background-image: url('../../../images/gitman_mode.jpg');
+          }
+        }
+
       }
       .title-container {
         float: left;

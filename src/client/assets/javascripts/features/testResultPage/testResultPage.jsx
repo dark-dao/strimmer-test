@@ -144,8 +144,12 @@ class TestResultPage extends Component {
       backgroundImage: `url(${result.image})`
     };
     let leprekonMode = false;
+    let gitmanMode = false;
     console.log(result);
-    if(result.id == 7) {
+    if(result.id == 3) { // Гитман
+      gitmanMode = true;
+    }
+    if(result.id == 7) { // Факер
       leprekonMode = true;
     }
     return (
@@ -164,7 +168,7 @@ class TestResultPage extends Component {
               <div className="name">
                 <span>Ты {result.name}</span>
               </div>
-              <div className="image-container">
+              <div className={gitmanMode ? "image-container gitman-mode" : "image-container"}>
                 <div className="strimmer-image" style={strimmerImage}/>
               </div>
               <div className="title-container">
@@ -194,6 +198,16 @@ class TestResultPage extends Component {
               </div>
             </div>
           )}
+        </div>
+        <div className="debug">
+          {_.map(stats, item => {
+            return (
+              <div key={Math.random()} className="debug-item">
+                <span>{item.name} </span>
+                <strong>{item.weight}</strong>
+              </div>
+            );
+          })}
         </div>
       </div>
     )

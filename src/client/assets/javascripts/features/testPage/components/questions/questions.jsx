@@ -37,21 +37,36 @@ class Questions extends Component {
     return questions.sort(this.getRandomNumber);
   }
   componentWillReceiveProps(nextProps) {
-    console.log(nextProps);
+    const { testStep } = this.state;
     this.setState({
       testData: nextProps.testData
     });
+    if((testStep + 1) == _.size(questionsMapper)) { // последний ответ на вопрос
+      const { testData } = nextProps;
+      let max = 0;
+      _.map(testData, item => {
+        if(item.weight > max) { // ищем максимум
+          max = item.weight;
+        }
+      });
+      let repeatElems = _.filter(testData, item => {return item.weight == max});
+      let isDisputResult = _.size(repeatElems) >= 2;
+
+      if(isDisputResult) {
+        this.props.setDisputAnswers(_.map(repeatElems, item => item.id));
+      } else {
+        browserHistory.push('/result');
+      }
+    }
   }
   handleSelectAnswer(id, weight) {
     console.log(id, weight);
-    if(this.state.testStep < _.size(questionsMapper)) {
-      this.setState({
-        answer: {
-          id: id,
-          weight: weight
-        }
-      });
-    }
+    this.setState({
+      answer: {
+        id: id,
+        weight: weight
+      }
+    });
   }
   nextStep() {
     const { testStep, answer } = this.state;
@@ -64,23 +79,8 @@ class Questions extends Component {
     }
   }
   transitionToResults() {
-    const { testData } = this.state;
-    let max = 0;
-    _.map(testData, item => {
-      if(item.weight > max) { // ищем максимум
-        max = item.weight;
-      }
-    });
-    let repeatElems = _.filter(testData, item => {return item.weight == max});
-    let isDisputResult = _.size(repeatElems) >= 2;
-    console.log(repeatElems);
-    console.log(isDisputResult);
-    if(isDisputResult) {
-      this.props.setDisputAnswers(_.map(repeatElems, item => item.id));
-      //this.props.setDisputAnswers([1,2]);
-    } else {
-      browserHistory.push('/result');
-    }
+    const { answer } = this.state;
+    this.props.selectAnswer(answer);
   }
   render() {
     const { randomQuestions, testStep, testData, answer } = this.state;
@@ -116,7 +116,9 @@ class Questions extends Component {
                   {_.size(answer) ? (
                     <div className="button-container">
                       {(testStep+1) == _.size(questionsMapper) ? (
-                        <Button onClick={() => {this.transitionToResults();}}>Узнать результат!</Button>
+                        <Button onClick={() => {
+                            this.transitionToResults();
+                          }}>Узнать результат!</Button>
                       ) : (
                         <Button key={Math.random()} onClick={() => {this.nextStep();}}>Далее</Button>
                       )}
