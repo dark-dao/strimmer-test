@@ -210,10 +210,7 @@ class TestResultPage extends Component {
                   </div>
                 </div>
                 <div className="pay-container">
-                  <div className="text">
-                    Поблагодарить
-                  </div>
-                  <Link target="_blank" to="https://paypal.me/darkdao"/>
+                  <Link target="_blank" to="https://paypal.me/darkdao">Поблагодарить</Link>
                 </div>
               </div>
             </div>

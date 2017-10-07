@@ -42,7 +42,7 @@ class StartPage extends Component {
                 <span>Дизайн и концепция</span>
               </div>
               <div className="mail">
-                <span>email</span>
+                <span>bautzendorf@gmail.com</span>
               </div>
               <Link target="_blank" to="https://vk.com/kensik"/>
             </div>
@@ -56,10 +56,7 @@ class StartPage extends Component {
               <Link target="_blank" to="https://vk.com/dark_dao"/>
             </div>
             <div className="pay-container">
-              <div className="text">
-                Поблагодарить
-              </div>
-              <Link target="_blank" to="https://paypal.me/darkdao"/>
+              <Link target="_blank" to="https://paypal.me/darkdao">Поблагодарить</Link>
             </div>
           </div>
         </div>
