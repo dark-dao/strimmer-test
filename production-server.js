@@ -4,10 +4,69 @@ const express = require('express');
 const app = express();
 const helmet = require('helmet');
 const robots = require('express-robots-txt');
+const fs = require('fs');
 
 const host = 'localhost';
 const port = 5088;
+const logsPath = `${__dirname}/logs/logs.txt`;
+const countPath = `${__dirname}/logs/count.txt`;
 
+const getTimeString = () => {
+  let time = new Date();
+  let month = time.getMonth() + 1;
+  let data = time.getDate();
+  let hours = time.getHours();
+  let minutes = time.getMinutes();
+  let seconds = time.getSeconds();
+  let milliseconds = time.getMilliseconds();
+  return `[${month}.${data} - ${hours}:${minutes}:${seconds}:${milliseconds}]`;
+};
+const writeToLogFile = (ip) => {
+  return new Promise ((resolve, reject) => {
+    fs.stat(`${logsPath}`, (err, stat) => {
+      const logString = `${getTimeString()} - IP ${ip} \n`;
+      console.log(logString);
+      if(err == null) {
+        fs.appendFile(logsPath, logString, (err) => {
+           if (err) {
+             reject(err);
+           } else {
+             resolve('success');
+           }
+        });
+      } else {
+        fs.writeFile(logsPath, logString, (err) => {
+          if(err) {
+            reject(err);
+          } else {
+            resolve('success');
+          }
+        });
+      }
+    });
+  });
+};
+const addCount = () => {
+  return new Promise((resolve, reject) => {
+    let countNumber;
+    fs.readFile(countPath, 'utf8', (err, number) => {
+      console.log(typeof(number));
+      console.log('NUMBER', number);
+      if(err) {
+        reject(err);
+      } else {
+        countNumber = parseInt(number) + 1;
+        fs.writeFile(countPath, countNumber, (err) => {
+          if(err) {
+            reject(err);
+          } else {
+            resolve('success');
+          }
+        });
+      }
+    });
+  });
+};
 app.use(helmet());
 app.use(robots([
   {
@@ -38,14 +97,8 @@ const middleWare = (req, res, next) => {
   ip = ip.split(',')[0];
   ip = ip.split(':').slice(-1);
   ip = `${ip}`;
-  let time = new Date();
-  let month = time.getMonth() + 1;
-  let data = time.getDate();
-  let hours = time.getHours();
-  let minutes = time.getMinutes();
-  let seconds = time.getSeconds();
-  let milliseconds = time.getMilliseconds();
-  console.log(`[${month}.${data} - ${hours}:${minutes}:${seconds}:${milliseconds}] - IP: [ ${ip} ]`);
+  writeToLogFile(ip).then((success) => {return;}, (error) => {console.log(error)});
+  addCount().then((success) => {return;}, (error) => {console.log(error)});
   next();
 };
 
