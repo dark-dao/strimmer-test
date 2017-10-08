@@ -28,11 +28,11 @@ class StartPage extends Component {
       <div className="start-page">
         <div className="preview">
           <div className="header">
-            <h1>Узнай кто ты из стриммеров</h1>
+            <h1>Узнай кто ты из стримеров</h1>
           </div>
           <div className="body">
             <div className="text">
-              <span>Пройди этот тест и узнай кто ты из величайших стриммеров современности</span>
+              <span>Пройди этот тест и узнай кто ты из величайших стримеров современности</span>
             </div>
             <Button onClick={() => { this.transitionToStart();}}> Пройти тест! </Button>
           </div>

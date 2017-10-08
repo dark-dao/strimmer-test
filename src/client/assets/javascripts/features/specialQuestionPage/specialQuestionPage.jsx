@@ -9,7 +9,7 @@ import { RadioButton, Button } from './components';
 import './specialQuestionPage.less';
 
 /*
-  Маппер стриммеров
+  Маппер стримеров
   1 - Кекс
   2 - Мэд
   3 - Гитман

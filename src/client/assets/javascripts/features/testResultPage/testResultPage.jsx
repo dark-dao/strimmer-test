@@ -106,7 +106,7 @@ class TestResultPage extends Component {
       document.getElementById('vk_share_button').innerHTML =
         VK.Share.button({
           url: 'https://etozhetest.ru',
-          title: `Я ${this.state.result.name}. Узнай кто ты из стриммеров!`
+          title: `Я ${this.state.result.name}. Узнай кто ты из стримеров!`
         }, {
           type: 'custom', text: '<img id="vk_button_link"/>'
         });
@@ -219,7 +219,7 @@ class TestResultPage extends Component {
                 </div>
               </div>
               <div className="footer-container">
-                <Button onClick={() => { this.handleTransition();}}>Возможно я другой стриммер?</Button>
+                <Button onClick={() => { this.handleTransition();}}>Возможно я другой стример?</Button>
                 <div className="social-buttons-container">
                   <div className="header">
                     <span>Поделиться</span>
