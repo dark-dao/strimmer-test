@@ -8,11 +8,6 @@ import { Button } from './components';
 import { resetTest } from 'app/redux-module/actions/testData';
 import { config } from 'app/config';
 
-import mad from '../../../images/mad.jpg';
-import angry_man from '../../../images/angry_man.png';
-import toha from '../../../images/toha.png';
-import ten from '../../../images/ten.png';
-
 const phrasesMapper = [
   "Мошним, мошним . . .",
   "Кормим Кекса . . .",
@@ -30,10 +25,10 @@ const phrasesMapper = [
 ];
 
 const loaderImageUrls = [
-  mad,
-  angry_man,
-  toha,
-  ten
+  'mad_img',
+  'angry_man',
+  'toha',
+  'ten'
 ];
 
 const mapDispatchToProps = {
@@ -54,10 +49,7 @@ class TestResultPage extends Component {
 
     let randomIndex = 0 - 0.5 + Math.random() * (_.size(loaderImageUrls) - 1 + 1);
     randomIndex = Math.round(randomIndex) + 0;
-    const randomImage = loaderImageUrls[randomIndex];
-    const loaderBackground = {
-      backgroundImage: `url(${randomImage})`
-    };
+    const loaderBackground = loaderImageUrls[randomIndex];
 
     this.state = {
       isLoading: true,
@@ -198,7 +190,7 @@ class TestResultPage extends Component {
             <div className="loader-container">
               <div className="header">Вычисляем результат</div>
               <div className="loader-block">
-                <div className="loader" style={loaderBackground}/>
+                <div className={`loader ${loaderBackground}`}/>
               </div>
               <span className="loader-phrase">{phrase}</span>
             </div>
