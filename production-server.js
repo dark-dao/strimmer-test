@@ -50,8 +50,6 @@ const addCount = () => {
   return new Promise((resolve, reject) => {
     let countNumber;
     fs.readFile(countPath, 'utf8', (err, number) => {
-      console.log(typeof(number));
-      console.log('NUMBER', number);
       if(err) {
         reject(err);
       } else {
