@@ -50,7 +50,7 @@ module.exports = {
       // Images
       // Inline base64 URLs for <=8k images, direct URLs for the rest
       {
-        test: /\.(png|jpg|jpeg|gif|svg)$/,
+        test: /\.(png|PNG|jpg|jpeg|gif|svg)$/,
         use: [
           {
             loader: 'url-loader',
