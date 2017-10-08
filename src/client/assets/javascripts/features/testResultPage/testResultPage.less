@@ -353,8 +353,23 @@
     padding: 0;
 
     .result {
-      width: 100%;
+      min-width: 100vw;
+      height: 100vh;
       margin: 0;
+
+      .loader-container {
+        .loader-phrase {
+          font-size: 18px;
+        }
+      }
+      .result-container {
+        .title-container {
+          font-size: 22px;
+          .strimmer-url {
+            width: 150px;
+          }
+        }
+      }
     }
   }
 }

@@ -16,6 +16,7 @@
       height: 60px;
       padding-left: 30px;
       padding-top: 10px;
+      padding-right: 30px;
       color: #321659;
       background-color: #9F8FBF;
 
@@ -98,12 +99,34 @@
 }
 @media screen and (max-width: 800px) {
   .start-page {
-    min-width: 100%;
+    min-width: 100vw;
     padding: 0;
 
     .preview {
       width: 100%;
       margin: 0;
+
+      .header {
+        max-width: 100vw;
+        opacity: 0.95;
+        filter: alpha(opacity=95);
+        h1 {
+          font-size: 20px;
+          line-height: 40px;
+        }
+      }
+      .body {
+        max-width: 100vw;
+        height: auto;
+        opacity: 0.95;
+        filter: alpha(opacity=95);
+      }
+      .footer {
+        max-width: 100vw;
+        font-size: 13px;
+        opacity: 0.95;
+        filter: alpha(opacity=95);
+      }
     }
   }
 }
