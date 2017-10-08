@@ -95,6 +95,14 @@ const questionsMapper = [
       {ans: 'Фусадзиро Ямаути', id: 9, weight: 0.5}, // Нюк
       {ans: 'BlackSilverUfa', id: 10, weight: 0.5}] // Юзя
   },
+  {
+    question: "Если бы вас позвали играть в спектакле, то какую бы роль присвоили тебе? ",
+    answers: [
+      {ans: 'Злого антогониста', id: 3, weight: 0.5}, // Гитман
+      {ans: 'Незнакомца второго плана', id: 9, weight: 0.5}, // Нюк
+      {ans: 'Хулигана', id: 8, weight: 0.5}, // Ласка
+      {ans: 'Опытного стрелка', id: 1, weight: 0.5}] // Кекс
+  }
 ];
 
 export default questionsMapper;

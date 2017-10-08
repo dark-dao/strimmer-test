@@ -138,15 +138,47 @@ class TestResultPage extends Component {
   handleTransition() {
     this.props.resetTest();
   }
+  getImageStyle(id) {
+    switch (id) {
+      case 1:
+        return 'cake';
+        break;
+      case 2:
+        return 'mad';
+        break;
+      case 3:
+        return 'guit88man';
+        break;
+      case 4:
+        return 'hovan';
+        break;
+      case 5:
+        return 'welovegames';
+        break;
+      case 6:
+        return 'valakas';
+        break;
+      case 7:
+        return 'mistafaker';
+        break;
+      case 8:
+        return 'lasqa';
+        break;
+      case 9:
+        return 'nuke73';
+        break;
+      case 10:
+        return 'uselessmouth';
+        break;
+    };
+  }
   render() {
     const { isLoading, phrase, stats, result, loaderBackground } = this.state;
-    const strimmerImage = {
-      backgroundImage: `url(${result.image})`
-    };
     let leprekonMode = false;
     let gitmanMode = false;
     let madMode = false;
     let welovegamesMode = false;
+    const imageStyle = this.getImageStyle(result.id);
     if(result.id == 2) { // Мэд
       madMode = true;
     }
@@ -176,7 +208,7 @@ class TestResultPage extends Component {
                 <span>Ты {result.name}</span>
               </div>
               <div className={gitmanMode ? "image-container gitman-mode" : "image-container"}>
-                <div className={welovegamesMode ? "strimmer-image welovegames-mode" : "strimmer-image"} style={strimmerImage}>
+                <div className={welovegamesMode ? `${imageStyle} strimmer-image welovegames-mode` : `${imageStyle} strimmer-image`}>
                   {madMode ? (
                     <div className="mad-mode"/>
                   ) : null}
