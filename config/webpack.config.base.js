@@ -21,7 +21,7 @@ module.exports = {
       path.join(__dirname, '../src/client/assets/javascripts/componets'),
       path.join(__dirname, '../src/client/assets/javascripts/features'),
       path.join(__dirname, '../src/client/assets/javascripts/utils'),
-      path.join(__dirname, '../src/client/assets/javascripts/app')
+      path.join(__dirname, '../src/client/assets/javascripts/app'),
       'node_modules'
     ],
     extensions: ['.js', '.jsx', '.json', '.less']
