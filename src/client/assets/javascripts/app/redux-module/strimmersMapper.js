@@ -132,7 +132,7 @@ const Strimmers = [
   {
     id: 9,
     name: 'Nuke73',
-    title: '',
+    title: 'Для тебя настало время забирать игры у Nintendo силой',
     image: imageUrls.nuke73,
     urls: [
       {url: 'https://www.twitch.tv/nuke73', title: 'twitch'},

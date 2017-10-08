@@ -129,7 +129,7 @@ class Questions extends Component {
             );
           }
         })}
-        <div className="debug">
+        {/* <div className="debug">
           {_.map(testData, item => {
             return (
               <div key={Math.random()} className="debug-item">
@@ -138,7 +138,7 @@ class Questions extends Component {
               </div>
             );
           })}
-        </div>
+        </div> */}
       </div>
     )
   }
